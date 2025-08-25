@@ -23,8 +23,8 @@
             align-items: center;
         }
         .cert-detail-img {
-            width: 120px;
-            height: 120px;
+            width: 350px;
+            height: 350px;
             object-fit: contain;
             margin-bottom: 18px;
             border-radius: 12px;
@@ -66,7 +66,8 @@
     <div class="cert-detail-container">
         <img id="certImg" class="cert-detail-img" src="" alt="Certificate Image">
         <div class="cert-detail-title" id="certTitle">Certificate Title</div>
-        <div class="cert-detail-desc" id="certDesc">Certificate description goes here.</div>
+    <div class="cert-detail-desc" id="certDesc">Certificate description goes here.</div>
+    <div class="cert-detail-date" id="certDate" style="color:#666;font-size:0.98em;margin-bottom:1.2em;text-align:center;"></div>
         <a href="index.html#certifications" class="cert-back"><i class="fas fa-arrow-left"></i> Back</a>
     </div>
     <script>
@@ -74,53 +75,80 @@
         const certData = [
             {
                 title: "Python Programming – Information Technology Specialist Certification",
-                img: "images/cert1.png",
-                desc: "This certificate validates proficiency in Python programming, covering core concepts, syntax, and problem-solving skills."
+                img: "/certi.images/Python (1)_page-0001 (1).jpg",
+                desc: "Demonstrated comprehensive knowledge of Python programming, including data types, control structures, functions, and object-oriented programming. Gained hands-on experience in problem-solving and real-world application development.",
+                date: "Completed: August 20, 2024"
             },
             {
                 title: "UI/UX Design Workshop – VEI Technology",
-                img: "images/cert2.png",
-                desc: "Completed a hands-on workshop on UI/UX design, focusing on user research, wireframing, prototyping, and usability testing."
+                img: "/certi.images/uiux.jpg",
+                desc: "Completed an intensive workshop covering the fundamentals of user interface and user experience design. Learned about user research, wireframing, prototyping, usability testing, and best practices for creating intuitive digital products.",
+                date: "Completed: January 2025"
             },
             {
                 title: "Fullstack Development Course – Novitech",
-                img: "images/cert3.png",
-                desc: "A comprehensive course covering frontend and backend web development, including HTML, CSS, JavaScript, and server-side technologies."
+                img: "/certi.images/fullstack.jpg",
+                desc: "Acquired full-stack web development skills, including HTML, CSS, JavaScript, and backend technologies. Built and deployed dynamic web applications, focusing on both client-side and server-side programming.",
+                date: "Completed: November 25, 2024"
             },
             {
-                title: "Java Programming – Udemy",
-                img: "images/cert4.png",
-                desc: "Successfully completed a Java programming course, learning object-oriented concepts, data structures, and application development."
+                title: "Introduction of MongoDB",
+                img: "/certi.images/mongodb.jpg",
+                desc: "Gained foundational knowledge of MongoDB, including database design, CRUD operations, data modeling, and performance optimization. Practiced building and querying NoSQL databases for scalable applications.",
+                date: "Completed: July 15, 2024"
             },
             {
-                title: "Java Programming – Udemy",
-                img: "images/cert4.png",
-                desc: "Successfully completed a Java programming course, learning object-oriented concepts, data structures, and application development."
+                title: "SQL(Basics) - HackerRank",
+                img: "/certi.images/sql_basic certificate_page-0001 (1).jpg",
+                desc: "Mastered the basics of SQL, including writing queries, filtering data, joining tables, and using aggregate functions. Applied SQL skills to solve real-world database problems and optimize data retrieval.",
+                date: "Completed: July 20, 2025"
             },
             {
-                title: "Java Programming – Udemy",
-                img: "images/cert4.png",
-                desc: "Successfully completed a Java programming course, learning object-oriented concepts, data structures, and application development."
+                title: "Learnathon-2023",
+                img: "/certi.images/learnthon.jpg",
+                desc: "Participated in Learnathon 2023, a collaborative learning event focused on Java programming. Enhanced skills in object-oriented programming, data structures, and algorithmic problem-solving through hands-on challenges.",
+                date: "Completed: September 2023"
             },
             {
-                title: "Java Programming – Udemy",
-                img: "images/cert4.png",
-                desc: "Successfully completed a Java programming course, learning object-oriented concepts, data structures, and application development."
+                title: "Cybersecurity Fundamentals",
+                img: "/certi.images/cybersecurity.jpg",
+                desc: "Completed a course on cybersecurity fundamentals, covering network security, encryption, threat analysis, and risk management. Developed an understanding of best practices for protecting digital assets.",
+                date: "Completed: February 5, 2025"
             },
             {
-                title: "Java Programming – Udemy",
-                img: "images/cert4.png",
-                desc: "Successfully completed a Java programming course, learning object-oriented concepts, data structures, and application development."
+                title: "Completing the CCNA - Cisco",
+                img: "/certi.images/cisco.jpg",
+                desc: "Successfully completed the Cisco Certified Network Associate (CCNA) program. Learned about networking concepts, IP addressing, routing and switching, and network troubleshooting.",
+                date: "Completed: July 2025"
+            },
+            {
+                title: "Create the lead generation messenger chatbot using Chatfuel",
+                img: "/certi.images/chatfuel.jpg",
+                desc: "Built a lead generation chatbot using Chatfuel, integrating automated messaging, user engagement flows, and data collection. Focused on improving customer interaction and conversion rates.",
+                date: "Completed: June 2025"
+            },
+            {
+                title: "Completion of the UI Path",
+                img: "/certi.images/Automation Developer Associate Training (v2023.10) for ICT Academy_Sabari nathan_en-US_diploma_page-0001.jpg",
+                desc: "Completed the UI Path Automation Developer Associate Training. Learned to design, develop, and deploy robotic process automation (RPA) workflows for business process optimization.",
+                date: "Completed: May 2025"
+            },
+            {
+                title: "Microsoft learn ai builder - Microsoftlearn",
+                img: "/certi.images/ai-builder.jpg",
+                desc: "Completed the Microsoft Learn AI Builder course, gaining practical experience in building, training, and deploying AI models. Integrated AI solutions into business applications using Microsoft Power Platform.",
+                date: "Completed: September 2023"
             }
         ];
         // Get cert index from URL
         const params = new URLSearchParams(window.location.search);
         const certIdx = parseInt(params.get('cert'), 10) - 1;
         const cert = certData[certIdx] || certData[0];
-        document.getElementById('certTitle').textContent = cert.title;
-        document.getElementById('certDesc').textContent = cert.desc;
-        document.getElementById('certImg').src = cert.img;
-        document.getElementById('certImg').alt = cert.title + ' Image';
+    document.getElementById('certTitle').textContent = cert.title;
+    document.getElementById('certDesc').textContent = cert.desc;
+    document.getElementById('certDate').textContent = cert.date || '';
+    document.getElementById('certImg').src = cert.img;
+    document.getElementById('certImg').alt = cert.title + ' Image';
     </script>
 </body>
 </html>
